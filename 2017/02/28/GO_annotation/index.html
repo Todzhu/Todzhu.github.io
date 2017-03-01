@@ -1,0 +1,702 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Perl," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Gene Ontology AnnotationGO 简介大多数基因在不同生物中的同源基因拥有相同的主要生物学功能。 因此， 在某些物种里已知的基因功能信息可以用来解释其他物种对应的同源基因， 但是这些已知的功能信息包含在先前积累的浩瀚文献之中， 不同的文献会用不同的词汇来描述同一生物学功能， 这为功能检索和注释带来诸多不便。而 GO项目就是建立一套特定的词汇集合来描述生物学功能， 以此对基因功能">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gene Ontology Annotation">
+<meta property="og:url" content="http://yoursite.com/2017/02/28/GO_annotation/index.html">
+<meta property="og:site_name" content="Todzhu">
+<meta property="og:description" content="Gene Ontology AnnotationGO 简介大多数基因在不同生物中的同源基因拥有相同的主要生物学功能。 因此， 在某些物种里已知的基因功能信息可以用来解释其他物种对应的同源基因， 但是这些已知的功能信息包含在先前积累的浩瀚文献之中， 不同的文献会用不同的词汇来描述同一生物学功能， 这为功能检索和注释带来诸多不便。而 GO项目就是建立一套特定的词汇集合来描述生物学功能， 以此对基因功能">
+<meta property="og:updated_time" content="2017-03-01T04:30:39.381Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gene Ontology Annotation">
+<meta name="twitter:description" content="Gene Ontology AnnotationGO 简介大多数基因在不同生物中的同源基因拥有相同的主要生物学功能。 因此， 在某些物种里已知的基因功能信息可以用来解释其他物种对应的同源基因， 但是这些已知的功能信息包含在先前积累的浩瀚文献之中， 不同的文献会用不同的词汇来描述同一生物学功能， 这为功能检索和注释带来诸多不便。而 GO项目就是建立一套特定的词汇集合来描述生物学功能， 以此对基因功能">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/02/28/GO_annotation/"/>
+
+
+
+
+
+  <title> Gene Ontology Annotation | Todzhu </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Todzhu</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Proteomics Bioinformatic analysis</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于我
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/28/GO_annotation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Todzhu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Todzhu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Gene Ontology Annotation
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-28T00:00:00+08:00">
+                2017-02-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Proteomics-learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Proteomics learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Gene-Ontology-Annotation"><a href="#Gene-Ontology-Annotation" class="headerlink" title="Gene Ontology Annotation"></a>Gene Ontology Annotation</h1><h2 id="GO-简介"><a href="#GO-简介" class="headerlink" title="GO 简介"></a>GO 简介</h2><p>大多数基因在不同生物中的同源基因拥有相同的主要生物学功能。 因此， 在某些物种里已知的基因功能信息可以用来解释其他物种对应的同源基因， 但是这些已知的功能信息包含在先前积累的浩瀚文献之中， 不同的文献会用不同的词汇来描述同一生物学功能， 这为功能检索和注释带来诸多不便。而 GO项目就是建立一套特定的词汇集合来描述生物学功能， 以此对基因功能注释统一化． 用于描述生物学功能的词汇必然要反映生物学功能的本质， 此即本体论的由来。从整体上来看GO注释包含三个分支，即生物学过程（Biological Process），分子功能（Molecular Function），细胞组分（Cellular Component）。</p>
+<h3 id="GO-注释方法："><a href="#GO-注释方法：" class="headerlink" title="GO 注释方法："></a>GO 注释方法：</h3><p>1、将要注释的氨基酸序列使用Interproscan（InterPro是个数据库，里面包含蛋白功能、蛋白家族等信息，而Interproscan可以将蛋白序列跟这个数据库比对，从而给序列功能注释），得到该蛋白的对应的IPR 和 GO id等信息。</p>
+<p>Interproscan在线网站: <a href="http://www.ebi.ac.uk/interpro/search/sequence-search" target="_blank" rel="external">Interproscan</a></p>
+<p>2、Interproscan输出结果out.ipr解析</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/perl -w</span></div><div class="line"><span class="keyword">use</span> strict;</div><div class="line"><span class="keyword">my</span> $entry_list = <span class="string">"/home/ztt/temp/Entry_list.xls"</span>;</div><div class="line"><span class="keyword">my</span> $input = <span class="keyword">shift</span>;</div><div class="line"><span class="keyword">open</span> FILE,$entry_list;</div><div class="line"><span class="keyword">my</span> %type;</div><div class="line"><span class="keyword">my</span> %out;</div><div class="line"><span class="keyword">my</span> %go;</div><div class="line"><span class="keyword">while</span> (&lt;FILE&gt;)&#123;</div><div class="line">	<span class="keyword">chomp</span>;</div><div class="line">	<span class="keyword">my</span> @a = <span class="keyword">split</span>;</div><div class="line">	$type&#123;$a[<span class="number">0</span>]&#125; = $a[<span class="number">1</span>];</div><div class="line">&#125;</div><div class="line"><span class="keyword">open</span> FILE,$input;</div><div class="line"><span class="keyword">while</span> (&lt;FILE&gt;)&#123;</div><div class="line">	<span class="keyword">chomp</span>;</div><div class="line">	<span class="keyword">my</span> @a = <span class="keyword">split</span> <span class="regexp">/\t/</span>;</div><div class="line">	<span class="keyword">if</span> ($a[<span class="number">11</span>] <span class="keyword">and</span> $type&#123;$a[<span class="number">11</span>]&#125; eq <span class="string">'Domain'</span>)&#123;</div><div class="line">		$out&#123;$a[<span class="number">0</span>]&#125;&#123;$a[<span class="number">11</span>]&#125;=$a[<span class="number">12</span>];</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span> ($a[<span class="number">13</span>])&#123;</div><div class="line">		<span class="keyword">my</span> @go = <span class="keyword">split</span> <span class="regexp">/\|/</span>, $a[<span class="number">13</span>];</div><div class="line">		<span class="keyword">foreach</span> <span class="keyword">my</span> $go (@go)&#123;</div><div class="line">			$go&#123;$a[<span class="number">0</span>]&#125;&#123;$go&#125;=<span class="number">1</span>;							</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">open</span> OUT1,<span class="string">"&gt;go.xls"</span>;</div><div class="line"><span class="keyword">foreach</span> <span class="keyword">my</span> $k1 (<span class="keyword">keys</span> %go)&#123;</div><div class="line">	<span class="keyword">print</span> OUT1 <span class="string">"$k1\t"</span>;</div><div class="line">	<span class="keyword">foreach</span> <span class="keyword">my</span> $k2 (<span class="keyword">keys</span> %&#123;$go&#123;$k1&#125;&#125;)&#123;</div><div class="line">		<span class="keyword">print</span> OUT1 <span class="string">"$k2\t"</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">print</span> OUT1 <span class="string">"\n"</span>;	</div><div class="line">&#125;</div><div class="line"><span class="keyword">open</span> OUT,<span class="string">"&gt;Domain_annotation.xls"</span>;</div><div class="line"><span class="keyword">print</span> OUT <span class="string">"Protein accession\tIPR name\tDomain description\n"</span>;</div><div class="line"><span class="keyword">foreach</span> <span class="keyword">my</span> $k1 (<span class="keyword">keys</span> %out)&#123;</div><div class="line">	<span class="keyword">print</span> OUT <span class="string">"$k1\t"</span>;</div><div class="line">	<span class="keyword">foreach</span> <span class="keyword">my</span> $k2 (<span class="keyword">keys</span> %&#123;$out&#123;$k1&#125;&#125;)&#123;</div><div class="line">		<span class="keyword">print</span> OUT <span class="string">"$k2; "</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">print</span> OUT <span class="string">"\t"</span>;</div><div class="line">	<span class="keyword">foreach</span> <span class="keyword">my</span> $k2 (<span class="keyword">keys</span> %&#123;$out&#123;$k1&#125;&#125;)&#123;</div><div class="line">		<span class="keyword">print</span> OUT <span class="string">"$out&#123;$k1&#125;&#123;$k2&#125;; "</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">print</span> OUT <span class="string">"\n"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>3、GO注释</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/perl -w</span></div><div class="line"><span class="keyword">use</span> strict;</div><div class="line"><span class="keyword">use</span> GO::OntologyProvider::OboParser;</div><div class="line"><span class="keyword">if</span>(@ARGV&lt;<span class="number">2</span>)&#123;</div><div class="line">	<span class="keyword">print</span> STDERR <span class="string">"\tUsage:\n\t\tperl $0 go_list obo_file\n\n"</span>;</div><div class="line">	<span class="keyword">exit</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">my</span> $all_go_list = <span class="keyword">shift</span>;</div><div class="line"><span class="keyword">my</span> $ontologyFile = <span class="keyword">shift</span>;</div><div class="line"><span class="keyword">my</span> $ontology_F = GO::OntologyProvider::OboParser-&gt;new(<span class="string">ontologyFile =&gt;</span> $ontologyFile,<span class="string">aspect=&gt;</span><span class="string">"F"</span>);</div><div class="line"><span class="keyword">my</span> $ontology_P = GO::OntologyProvider::OboParser-&gt;new(<span class="string">ontologyFile =&gt;</span> $ontologyFile,<span class="string">aspect=&gt;</span><span class="string">"P"</span>);</div><div class="line"><span class="keyword">my</span> $ontology_C = GO::OntologyProvider::OboParser-&gt;new(<span class="string">ontologyFile =&gt;</span> $ontologyFile,<span class="string">aspect=&gt;</span><span class="string">"C"</span>);</div><div class="line"><span class="keyword">open</span> FILE,$all_go_list;</div><div class="line"><span class="keyword">my</span> %out;</div><div class="line"><span class="keyword">while</span>(&lt;FILE&gt;)&#123;</div><div class="line">	<span class="keyword">chomp</span>;</div><div class="line">	<span class="keyword">my</span> @a = <span class="keyword">split</span> <span class="regexp">/(\t|; )/</span>;</div><div class="line">	<span class="keyword">my</span> $gene_name = <span class="keyword">shift</span> @a;</div><div class="line">	<span class="keyword">foreach</span> <span class="keyword">my</span> $go_id(@a)&#123;</div><div class="line">		<span class="keyword">my</span> $nodeF = $ontology_F-&gt;nodeFromId($go_id);</div><div class="line">		<span class="keyword">my</span> $nodeC = $ontology_C-&gt;nodeFromId($go_id);</div><div class="line">		<span class="keyword">my</span> $nodeP = $ontology_P-&gt;nodeFromId($go_id);</div><div class="line">		<span class="keyword">if</span>($nodeF)&#123;</div><div class="line">			<span class="keyword">my</span> $temp = annotate($nodeF,$gene_name);</div><div class="line">			<span class="keyword">foreach</span> <span class="keyword">my</span> $k1(<span class="keyword">keys</span> %$temp)&#123;</div><div class="line">				$out&#123;$gene_name&#125;&#123;<span class="string">'Molecular Function'</span>&#125;&#123;$k1&#125;&#123;<span class="string">'name'</span>&#125;=$temp-&gt;&#123;$k1&#125;-&gt;&#123;<span class="string">'name'</span>&#125;;</div><div class="line">				$out&#123;$gene_name&#125;&#123;<span class="string">'Molecular Function'</span>&#125;&#123;$k1&#125;&#123;<span class="string">'level'</span>&#125;=$temp-&gt;&#123;$k1&#125;-&gt;&#123;<span class="string">'level'</span>&#125;;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span>($nodeC)&#123;</div><div class="line">			<span class="keyword">my</span> $temp = annotate($nodeC,$gene_name);</div><div class="line">			<span class="keyword">foreach</span> <span class="keyword">my</span> $k1(<span class="keyword">keys</span> %$temp)&#123;</div><div class="line">				$out&#123;$gene_name&#125;&#123;<span class="string">'Cellular Component'</span>&#125;&#123;$k1&#125;&#123;<span class="string">'name'</span>&#125;=$temp-&gt;&#123;$k1&#125;-&gt;&#123;<span class="string">'name'</span>&#125;;</div><div class="line">				$out&#123;$gene_name&#125;&#123;<span class="string">'Cellular Component'</span>&#125;&#123;$k1&#125;&#123;<span class="string">'level'</span>&#125;=$temp-&gt;&#123;$k1&#125;-&gt;&#123;<span class="string">'level'</span>&#125;;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span>($nodeP)&#123;</div><div class="line">			<span class="keyword">my</span> $temp = annotate($nodeP,$gene_name);</div><div class="line">			<span class="keyword">foreach</span> <span class="keyword">my</span> $k1(<span class="keyword">keys</span> %$temp)&#123;</div><div class="line">				$out&#123;$gene_name&#125;&#123;<span class="string">'Biological Process'</span>&#125;&#123;$k1&#125;&#123;<span class="string">'name'</span>&#125;=$temp-&gt;&#123;$k1&#125;-&gt;&#123;<span class="string">'name'</span>&#125;;</div><div class="line">				$out&#123;$gene_name&#125;&#123;<span class="string">'Biological Process'</span>&#125;&#123;$k1&#125;&#123;<span class="string">'level'</span>&#125;=$temp-&gt;&#123;$k1&#125;-&gt;&#123;<span class="string">'level'</span>&#125;;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">foreach</span> <span class="keyword">my</span> $k1(<span class="keyword">keys</span> %out)&#123;</div><div class="line">	<span class="keyword">foreach</span> <span class="keyword">my</span> $k2(<span class="keyword">keys</span> %&#123;$out&#123;$k1&#125;&#125;)&#123;</div><div class="line">		<span class="keyword">foreach</span> <span class="keyword">my</span> $k3(<span class="keyword">keys</span> %&#123;$out&#123;$k1&#125;&#123;$k2&#125;&#125;)&#123;</div><div class="line">			<span class="keyword">print</span> <span class="string">"$k1\t$k2\t$k3\t$out&#123;$k1&#125;&#123;$k2&#125;&#123;$k3&#125;&#123;'level'&#125;\t$out&#123;$k1&#125;&#123;$k2&#125;&#123;$k3&#125;&#123;'name'&#125;\n"</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">sub</span> <span class="title">annotate</span></span>&#123;</div><div class="line">	<span class="keyword">my</span> $node = <span class="keyword">shift</span>;</div><div class="line">	<span class="keyword">my</span> @pathtoRoot=$node-&gt;pathsToRoot;</div><div class="line">	<span class="keyword">my</span> %out_node;</div><div class="line">	<span class="keyword">my</span> $max=<span class="number">0</span>;</div><div class="line">	$out_node&#123;$node-&gt;goid&#125;&#123;<span class="string">"name"</span>&#125;=$node-&gt;term;</div><div class="line">	<span class="keyword">foreach</span> <span class="keyword">my</span> $path(@pathtoRoot)&#123;</div><div class="line">		<span class="keyword">if</span>(@$path&gt;$max)&#123;</div><div class="line">			$max=@$path;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span>(@$path&gt;<span class="number">1</span>)&#123;</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">my</span> $i=<span class="number">1</span>;$i&lt;@$path;$i++)&#123;</div><div class="line">				$out_node&#123;$path-&gt;[$i]-&gt;goid&#125;&#123;<span class="string">"name"</span>&#125;=$path-&gt;[$i]-&gt;term;</div><div class="line">				<span class="keyword">unless</span>($out_node&#123;$path-&gt;[$i]-&gt;goid&#125;&#123;<span class="string">"level"</span>&#125;)&#123;</div><div class="line">					$out_node&#123;$path-&gt;[$i]-&gt;goid&#125;&#123;<span class="string">"level"</span>&#125;=$i;</div><div class="line">				&#125;</div><div class="line">				<span class="keyword">else</span>&#123;</div><div class="line">					<span class="keyword">if</span>($out_node&#123;$path-&gt;[$i]-&gt;goid&#125;&#123;<span class="string">"level"</span>&#125;&lt;$i)&#123;</div><div class="line">						$out_node&#123;$path-&gt;[$i]-&gt;goid&#125;&#123;<span class="string">"level"</span>&#125;=$i;</div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	$out_node&#123;$node-&gt;goid&#125;&#123;<span class="string">"level"</span>&#125;=$max;</div><div class="line">	<span class="keyword">return</span> \%out_node;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Perl/" rel="tag"># Perl</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Todzhu" />
+          <p class="site-author-name" itemprop="name">Todzhu</p>
+           
+              <p class="site-description motion-element" itemprop="description">Stay hungry, Stay foolish.</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Gene-Ontology-Annotation"><span class="nav-number">1.</span> <span class="nav-text">Gene Ontology Annotation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#GO-简介"><span class="nav-number">1.1.</span> <span class="nav-text">GO 简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GO-注释方法："><span class="nav-number">1.1.1.</span> <span class="nav-text">GO 注释方法：</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Todzhu</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
