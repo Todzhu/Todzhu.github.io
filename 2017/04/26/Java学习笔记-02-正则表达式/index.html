@@ -87,20 +87,20 @@
 
 
 
-<meta name="description" content="JAVA正则表达式学习总结正则表达式（regular expressions）是一种描述字符串集的方法，它是以字符串集中各字符串的共有特征为依据的。正则表达式可以用于搜索、编辑或者是操作文本和数据。它超出了 Java 程序设计语言的标准语法，因此有必要去学习特定的语法来构建正则表达式。正则表达式的变化是复杂的，一旦理解了它们是如何被构造的话，就能解析或者构建任意的正则表达式了。
-一、java.ut">
+<meta name="description" content="正则表达式（regular expressions）是一种描述字符串集的方法，它是以字符串集中各字符串的共有特征为依据的。正则表达式可以用于搜索、编辑或者是操作文本和数据。它超出了 Java 程序设计语言的标准语法，因此有必要去学习特定的语法来构建正则表达式。正则表达式的变化是复杂的，一旦理解了它们是如何被构造的话，就能解析或者构建任意的正则表达式了。
+一、java.util.regex API">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java正则表达式学习总结">
 <meta property="og:url" content="http://yoursite.com/2017/04/26/Java学习笔记-02-正则表达式/index.html">
 <meta property="og:site_name" content="Todzhu">
-<meta property="og:description" content="JAVA正则表达式学习总结正则表达式（regular expressions）是一种描述字符串集的方法，它是以字符串集中各字符串的共有特征为依据的。正则表达式可以用于搜索、编辑或者是操作文本和数据。它超出了 Java 程序设计语言的标准语法，因此有必要去学习特定的语法来构建正则表达式。正则表达式的变化是复杂的，一旦理解了它们是如何被构造的话，就能解析或者构建任意的正则表达式了。
-一、java.ut">
+<meta property="og:description" content="正则表达式（regular expressions）是一种描述字符串集的方法，它是以字符串集中各字符串的共有特征为依据的。正则表达式可以用于搜索、编辑或者是操作文本和数据。它超出了 Java 程序设计语言的标准语法，因此有必要去学习特定的语法来构建正则表达式。正则表达式的变化是复杂的，一旦理解了它们是如何被构造的话，就能解析或者构建任意的正则表达式了。
+一、java.util.regex API">
 <meta property="og:image" content="http://i.imgur.com/x3ACb50.jpg">
-<meta property="og:updated_time" content="2017-04-26T08:41:10.907Z">
+<meta property="og:updated_time" content="2017-04-26T08:43:50.898Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java正则表达式学习总结">
-<meta name="twitter:description" content="JAVA正则表达式学习总结正则表达式（regular expressions）是一种描述字符串集的方法，它是以字符串集中各字符串的共有特征为依据的。正则表达式可以用于搜索、编辑或者是操作文本和数据。它超出了 Java 程序设计语言的标准语法，因此有必要去学习特定的语法来构建正则表达式。正则表达式的变化是复杂的，一旦理解了它们是如何被构造的话，就能解析或者构建任意的正则表达式了。
-一、java.ut">
+<meta name="twitter:description" content="正则表达式（regular expressions）是一种描述字符串集的方法，它是以字符串集中各字符串的共有特征为依据的。正则表达式可以用于搜索、编辑或者是操作文本和数据。它超出了 Java 程序设计语言的标准语法，因此有必要去学习特定的语法来构建正则表达式。正则表达式的变化是复杂的，一旦理解了它们是如何被构造的话，就能解析或者构建任意的正则表达式了。
+一、java.util.regex API">
 <meta name="twitter:image" content="http://i.imgur.com/x3ACb50.jpg">
 
 
@@ -368,7 +368,7 @@
       
 
       
-        <h1 id="JAVA正则表达式学习总结"><a href="#JAVA正则表达式学习总结" class="headerlink" title="JAVA正则表达式学习总结"></a>JAVA正则表达式学习总结</h1><p>正则表达式（regular expressions）是一种描述字符串集的方法，它是以字符串集中各字符串的共有特征为依据的。正则表达式可以用于搜索、编辑或者是操作文本和数据。它超出了 Java 程序设计语言的标准语法，因此有必要去学习特定的语法来构建正则表达式。正则表达式的变化是复杂的，一旦理解了它们是如何被构造的话，就能解析或者构建任意的正则表达式了。</p>
+        <p>正则表达式（regular expressions）是一种描述字符串集的方法，它是以字符串集中各字符串的共有特征为依据的。正则表达式可以用于搜索、编辑或者是操作文本和数据。它超出了 Java 程序设计语言的标准语法，因此有必要去学习特定的语法来构建正则表达式。正则表达式的变化是复杂的，一旦理解了它们是如何被构造的话，就能解析或者构建任意的正则表达式了。</p>
 <h2 id="一、java-util-regex-API-支持的正则表达式语法"><a href="#一、java-util-regex-API-支持的正则表达式语法" class="headerlink" title="一、java.util.regex API 支持的正则表达式语法"></a>一、java.util.regex API 支持的正则表达式语法</h2><p>java.util.regex 包主要由三个类所组成：<strong>Pattern、Matcher</strong> 和 <strong>PatternSyntaxException</strong>。</p>
 <p><strong>Pattern</strong> 对象表示一个已编译的正则表达式，Pattern 类没有提供公共的构造方法，要构建一个模式，首先必须调用公共的静态 compile 方法，它将返回一个 Pattern 对象。这个方法接受正则表达式作为第一个参数。</p>
 <p><strong>Matcher</strong> 是一个靠着输入的字符串来解析这个模式和完成匹配操作的对象。与 Pattern 相似，Matcher 也没有定义公共的构造方法，需要通过调用 Pattern 对象的 matcher 方法来获得一个 Matcher 对象。</p>
@@ -594,7 +594,7 @@ public class RegexDemo {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JAVA正则表达式学习总结"><span class="nav-number">1.</span> <span class="nav-text">JAVA正则表达式学习总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、java-util-regex-API-支持的正则表达式语法"><span class="nav-number">1.1.</span> <span class="nav-text">一、java.util.regex API 支持的正则表达式语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#二、-使用方法"><span class="nav-number">1.1.1.</span> <span class="nav-text">二、 使用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-支持的基本通配符"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">1.支持的基本通配符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-取值范围"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">2.取值范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-方括号表达式"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">3.方括号表达式</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、java-util-regex-API-支持的正则表达式语法"><span class="nav-number">1.</span> <span class="nav-text">一、java.util.regex API 支持的正则表达式语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#二、-使用方法"><span class="nav-number">1.1.</span> <span class="nav-text">二、 使用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-支持的基本通配符"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.支持的基本通配符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-取值范围"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.取值范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-方括号表达式"><span class="nav-number">1.1.3.</span> <span class="nav-text">3.方括号表达式</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
