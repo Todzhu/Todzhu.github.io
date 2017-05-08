@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="学习笔记,Java," />
+  <meta name="keywords" content="学习笔记,Proteomics learning," />
 
 
 
@@ -87,21 +87,28 @@
 
 
 
-<meta name="description" content="正则表达式（regular expressions）是一种描述字符串集的方法，它是以字符串集中各字符串的共有特征为依据的。正则表达式可以用于搜索、编辑或者是操作文本和数据。它超出了 Java 程序设计语言的标准语法，因此有必要去学习特定的语法来构建正则表达式。正则表达式的变化是复杂的，一旦理解了它们是如何被构造的话，就能解析或者构建任意的正则表达式了。
-一、java.util.regex API">
+<meta name="description" content="一、KEGG简介KEGG is a database resource for understanding high-level functions and utilities of the biological system, such as the cell, the organism and the ecosystem, from molecular-level information, e">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java正则表达式学习总结">
-<meta property="og:url" content="http://yoursite.com/2017/04/26/Java学习笔记-02-正则表达式/index.html">
+<meta property="og:title" content="蛋白质组学KEGG注释详解">
+<meta property="og:url" content="http://yoursite.com/2017/05/08/蛋白组KEGG注释详解/index.html">
 <meta property="og:site_name" content="Todzhu">
-<meta property="og:description" content="正则表达式（regular expressions）是一种描述字符串集的方法，它是以字符串集中各字符串的共有特征为依据的。正则表达式可以用于搜索、编辑或者是操作文本和数据。它超出了 Java 程序设计语言的标准语法，因此有必要去学习特定的语法来构建正则表达式。正则表达式的变化是复杂的，一旦理解了它们是如何被构造的话，就能解析或者构建任意的正则表达式了。
-一、java.util.regex API">
-<meta property="og:image" content="http://i.imgur.com/x3ACb50.jpg">
-<meta property="og:updated_time" content="2017-04-26T08:48:26.886Z">
+<meta property="og:description" content="一、KEGG简介KEGG is a database resource for understanding high-level functions and utilities of the biological system, such as the cell, the organism and the ecosystem, from molecular-level information, e">
+<meta property="og:image" content="http://i.imgur.com/RdUzbCF.jpg">
+<meta property="og:image" content="http://i.imgur.com/CUjra29.jpg">
+<meta property="og:image" content="http://i.imgur.com/b8zoAAy.jpg">
+<meta property="og:image" content="http://i.imgur.com/L9zpFln.jpg">
+<meta property="og:image" content="http://i.imgur.com/oynqFbm.jpg">
+<meta property="og:image" content="http://i.imgur.com/8cXuQ3w.jpg">
+<meta property="og:image" content="http://i.imgur.com/F0Q5etg.jpg">
+<meta property="og:image" content="http://i.imgur.com/UXZsf6c.jpg">
+<meta property="og:image" content="http://i.imgur.com/mkBqpFT.jpg">
+<meta property="og:image" content="http://i.imgur.com/mQgCDwF.jpg">
+<meta property="og:image" content="http://i.imgur.com/XOuM5qa.jpg">
+<meta property="og:updated_time" content="2017-05-08T07:18:12.576Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java正则表达式学习总结">
-<meta name="twitter:description" content="正则表达式（regular expressions）是一种描述字符串集的方法，它是以字符串集中各字符串的共有特征为依据的。正则表达式可以用于搜索、编辑或者是操作文本和数据。它超出了 Java 程序设计语言的标准语法，因此有必要去学习特定的语法来构建正则表达式。正则表达式的变化是复杂的，一旦理解了它们是如何被构造的话，就能解析或者构建任意的正则表达式了。
-一、java.util.regex API">
-<meta name="twitter:image" content="http://i.imgur.com/x3ACb50.jpg">
+<meta name="twitter:title" content="蛋白质组学KEGG注释详解">
+<meta name="twitter:description" content="一、KEGG简介KEGG is a database resource for understanding high-level functions and utilities of the biological system, such as the cell, the organism and the ecosystem, from molecular-level information, e">
+<meta name="twitter:image" content="http://i.imgur.com/RdUzbCF.jpg">
 
 
 
@@ -129,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/04/26/Java学习笔记-02-正则表达式/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/05/08/蛋白组KEGG注释详解/"/>
 
 
 
 
 
-  <title> Java正则表达式学习总结 | Todzhu </title>
+  <title> 蛋白质组学KEGG注释详解 | Todzhu </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -274,7 +281,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/26/Java学习笔记-02-正则表达式/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/08/蛋白组KEGG注释详解/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Todzhu">
@@ -295,7 +302,7 @@
             
             
               
-                Java正则表达式学习总结
+                蛋白质组学KEGG注释详解
               
             
           </h1>
@@ -310,8 +317,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-26T00:00:00+08:00">
-                2017-04-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-08T00:00:00+08:00">
+                2017-05-08
               </time>
             
 
@@ -333,8 +340,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java学习/" itemprop="url" rel="index">
-                    <span itemprop="name">Java学习</span>
+                  <a href="/categories/Proteomics-learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Proteomics learning</span>
                   </a>
                 </span>
 
@@ -368,61 +375,72 @@
       
 
       
-        <p>正则表达式（regular expressions）是一种描述字符串集的方法，它是以字符串集中各字符串的共有特征为依据的。正则表达式可以用于搜索、编辑或者是操作文本和数据。它超出了 Java 程序设计语言的标准语法，因此有必要去学习特定的语法来构建正则表达式。正则表达式的变化是复杂的，一旦理解了它们是如何被构造的话，就能解析或者构建任意的正则表达式了。</p>
-<h2 id="一、java-util-regex-API-支持的正则表达式语法"><a href="#一、java-util-regex-API-支持的正则表达式语法" class="headerlink" title="一、java.util.regex API 支持的正则表达式语法"></a>一、java.util.regex API 支持的正则表达式语法</h2><p>java.util.regex 包主要由三个类所组成：<strong>Pattern、Matcher</strong> 和 <strong>PatternSyntaxException</strong>。</p>
-<p><strong>Pattern</strong> 对象表示一个已编译的正则表达式，Pattern 类没有提供公共的构造方法，要构建一个模式，首先必须调用公共的静态 compile 方法，它将返回一个 Pattern 对象。这个方法接受正则表达式作为第一个参数。</p>
-<p><strong>Matcher</strong> 是一个靠着输入的字符串来解析这个模式和完成匹配操作的对象。与 Pattern 相似，Matcher 也没有定义公共的构造方法，需要通过调用 Pattern 对象的 matcher 方法来获得一个 Matcher 对象。</p>
-<p><strong>PatternSyntaxException</strong> 对象是一个未检查异常，指示了正则表达式中的一个语法错误。</p>
-<h3 id="二、-使用方法"><a href="#二、-使用方法" class="headerlink" title="二、 使用方法"></a>二、 使用方法</h3><h4 id="1-支持的基本通配符"><a href="#1-支持的基本通配符" class="headerlink" title="1.支持的基本通配符"></a>1.支持的基本通配符</h4><p><strong>.</strong>   -可以匹配任意字符</p>
-<p>\s  -代表一个任意空白(空格、Tab)</p>
-<p>\S  -代表一个任意的非空白</p>
-<p>\d  -代表一个任意的数字(digital)</p>
-<p>\D  -代表一个任意的非数字</p>
-<p>\w  -代表一个单词字符</p>
-<p>-W  -代表一个任意的非单词字符</p>
-<h4 id="2-取值范围"><a href="#2-取值范围" class="headerlink" title="2.取值范围"></a>2.取值范围</h4><p>?  –代表它前面的东西可以出现0~1次(有或无)</p>
-<p>* –代表它前面的东西可以出现0~N次 </p>
-<p>+ –代表它前面的东西可以出现1~N次</p>
-<p>{n,m} –代表它前面的东西可以出现n~m次</p>
-<p>{n,} –代表它前面的东西至少出现n次</p>
-<p>{,m} –代表它前面的东西最多出现m次</p>
-<p>{n} –代表它前面的东西必须出现n次</p>
-<h4 id="3-方括号表达式"><a href="#3-方括号表达式" class="headerlink" title="3.方括号表达式"></a>3.方括号表达式</h4><p>枚举：[ab1]  –代表a或b或者1</p>
-<p>范围：[a-c]  –代表a,b,c中的任意一个字符</p>
-<p>枚举与范围：[a-c1-3]–代表a,b,c,1,2,3中的任意一个字符</p>
-<p>表示求否：[^a-c] –代表不含a,b,c其中任意一个字符</p>
-<p>表示求交：[a-g&amp;&amp;[^b-d]]：–代表a,e,f,g中的任意一个字符</p>
-<p>表示必须含有其中之一：(com|org|cn)</p>
-<p>实例1：验证邮箱地址是否规范</p>
-<pre><code>import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-public class RegexDemo {
-
-    public static void main(String args[]){
-        //要验证的邮箱
-        String email=&quot;Todzhu@126.com&quot;;
-        //邮箱验证规则(正则表达式)
-        String regex=&quot;[\\w+\\d?[.-]]+@[\\w\\d]+\\.(com|org|cn|net)&quot;;
-        //编译正则表达式
-        Pattern pattern=Pattern.compile(regex);
-        //构建匹配
-        Matcher matcher=pattern.matcher(email);
-        //判断是否正则匹配
-        boolean regexmatch=matcher.matches();
-        if(regexmatch){
-        System.out.println(&quot;邮箱符合验证规则！&quot;);
-        System.out.println(&quot;======&quot;+matcher.group()+&quot;======&quot;);
-        }else{
-        System.out.println(&quot;邮箱验证失败！&quot;);
-        }
+        <h2 id="一、KEGG简介"><a href="#一、KEGG简介" class="headerlink" title="一、KEGG简介"></a>一、KEGG简介</h2><p>KEGG is a database resource for understanding high-level functions and utilities of the biological system, such as the cell, the organism and the ecosystem, from molecular-level information, especially large-scale molecular datasets generated by genome sequencing and other high-throughput experimental technologies.<br>（KEGG是一个数据库资源，用于从分子级信息，特别是基因组测序和其他高通量产生的大规模分子数据集中了解生物系统（如细胞，生物体和生态系统）高级功能和效用。）KEGG数据库可以分为3大部分，基因数据库、化学分子物质数据库及基于基因和化学分子物质相互关系而建立起来的代谢通路数据库，在KEGG数据库中，有一个“专有名词”KO（KEGG Orthology），它是蛋白质（酶）的一个分类体系，序列高度相似，并且在同一条通路上有相似功能的蛋白质被归为一组，然后打上KO（或K标签，KEGG orthology (ko)代表的是某个代谢途径，k代表的是某个酶，c代表的是某个化合物，M代表的是某个模块，后面都会跟着编号。代谢通路图中的正方形代表酶，圆形代表代谢物，5.4.4.4代表的是EC编号。</p>
+<p><strong>1.</strong> KEGG在线注释工具：KAAS(KEGG Automatic Annotation Server)：The method is based on sequence similarities,bi-directional best hit information and some heuristics, and has achieved a high degree of accuracy when compared with the manually curated KEGG GENES database.</p>
+<p>在KEGG数据库中，有一个“专有名词”KO（KEGG Orthology），它是蛋白质（酶）的一个分类体系，序列高度相似，并且在同一条通路上有相似功能的蛋白质被归为一组，然后打上KO（或K）标签。对于酶来说，40-70%的序列相似性对于功能的预测有90%的准确性。直系同源基因是来自于相同的祖先的基因分化，保存在不同的物种中的功能基因。在实际操作中，可以通过双向BLAST，来判断两个基因是否是BBH（bi-directional best hit）,从而来判断两个基因是否是直系同源基因。因此，对在许多物种中的直系同源基因的鉴定是对新测序的基因功能预测的最便捷的途径。而KEGG 数据库就是通过KEGG Orthology (KO)系统来跨物种注释的一种机制。KAAS的整个预测流程如下图所示：</p>
+<p><img src="http://i.imgur.com/RdUzbCF.jpg" alt=""></p>
+<p><strong>2.</strong>算法原理</p>
+<p>KAAS注释软件在运行中提供两种策略，the bi-directional best hit  information method(BBH method)和 the single-directional best hit information method (SBH method)。下面以BBH方法为例来讲解一下KAAS软件运行原理。</p>
+<p>首先将要注释的基因作为 query，和KEGG数据库中的参考基因进行blast比对，输出的结果（E&gt;10）称为homolog。同时把 KEGG数据库中的参考基因作为query，将要注释的基因作为reference，进行blast比对。实际上KEGG 在做注释的时候，并不是把所有的基因都作为 refernce，而是按照是否来自同一个基因组分成一个一个的小的 reference，分别进行 blast。</p>
+<p>假设有两个基因组 A 和B，含有的基因分别为 a1,a2,a3…an；b1,b2,b3…bn 先用A作为 query，B作为refer，进行blast比对，A中的基因a1对B中的基因进行遍历，和基因b1有最高的 bit score。现在用B作为query, A作为refer,进行blast比对，B中的基因b1对A中的基因进行遍历，如果bits score最高的是a1，则a1和a2就是一个Bi-directional best hit (BBH)，但也有可能不是a1，只能成为 Single-directional hit (SBH)。</p>
+<p>BHR( Bi-directional hit rate)是KEGG在Bi-directioanl Best Hit 的基础上进行修改的一个选项，BHR = Rf* Rr。用刚才的A和B作为例子。Rf为用A作为query，B作为Refer,  a1和B中的每一个基因都计算一次，Rf=Bits_score[a1-b1] /MaxBits_score[a1_b]。Blast Bits Score 是在 Blast raw score 换算过来的。分子是a1和B中的一个基因的Bit_score,分母是a1和B中基因最大的bit_score。反过来，可以计算一下Rr，即B作为query，A作为Refer。对每个 homolog 进行过滤的条件为Blast bits score &gt; 60，bi-directional hit rate (BHR)&gt;0.95</p>
+<p><strong>3.</strong>KAAS在线软件使用方法<br><a href="http://www.genome.jp/tools/kaas/" target="_blank" rel="external">http://www.genome.jp/tools/kaas/</a></p>
+<p>首先根据自己提交数据类型（Complete or Draft Genome、Partial Genome、Metagenomes），选择对应的提交界面。在这里我们选用Complete or Draft Genome，进入以下界面，并按照图中红色方框及文字指示进行操作。对于比对策略的选用，一般情况下对于单个完整的基因组都选用BBH，尽管速度稍慢（耗用时间为SBH的2倍），但准确性较高。而对于部分基因组及宏基因组，建议使用SBH。</p>
+<p><img src="http://i.imgur.com/CUjra29.jpg" alt=""></p>
+<p><img src="http://i.imgur.com/b8zoAAy.jpg" alt=""></p>
+<p><img src="http://i.imgur.com/L9zpFln.jpg" alt=""></p>
+<p><img src="http://i.imgur.com/oynqFbm.jpg" alt=""></p>
+<p><strong>3.1</strong> 使用KEGG数据库查找代谢通路<br><a href="http://www.kegg.jp/" target="_blank" rel="external">http://www.kegg.jp/</a></p>
+<p><img src="http://i.imgur.com/8cXuQ3w.jpg" alt=""></p>
+<p><img src="http://i.imgur.com/F0Q5etg.jpg" alt=""></p>
+<p><img src="http://i.imgur.com/UXZsf6c.jpg" alt=""></p>
+<p><img src="http://i.imgur.com/mkBqpFT.jpg" alt=""></p>
+<p><strong>4.</strong>对注释结果进行脚本解析</p>
+<p>KAAS软件注释的结果保存在pathway.txt和kolist.txt两个文件中，然后进行脚本解析</p>
+<p><img src="http://i.imgur.com/mQgCDwF.jpg" alt=""></p>
+<p><img src="http://i.imgur.com/XOuM5qa.jpg" alt=""></p>
+<p>解析脚本KEGG_annotation.pl</p>
+<pre><code>#!/usr/bin/perl -w
+use strict;
+use Getopt::Long;
+my $pathway;   #pathway.txt
+my $kolist;       #kolist.txt
+my $tag;       #物种拉丁名缩写
+my $pathway_name;
+my %hash;
+my %gene_desc;
+Getopt::Long::GetOptions(
+    &apos;p=s&apos; =&gt; \$pathway,    
+    &apos;k=s&apos; =&gt; \$kolist,
+    &apos;t=s&apos; =&gt; \$tag,
+);
+open FILE,$pathway;
+while(&lt;FILE&gt;){
+    chomp;
+    if(/^($tag\d+ (.*)) \(\d+\)/){
+        $pathway_name=$1;
+    }elsif(/ko:(K\d+) (.*)/){
+        $hash{$1}{$pathway_name}=1;
+        $gene_desc{$1}=$2;
     }
 }
-</code></pre><p>运行结果：</p>
-<pre><code>邮箱符合验证规则！
-======Todzhu@126.com======
-</code></pre><p>这些只是正则表达强大功能的很少一部分，至于更深层次的正则表达用法，等用到的时候再继续更新！</p>
-<p><img src="http://i.imgur.com/x3ACb50.jpg" alt=""></p>
+open FILE,$kolist;
+print &quot;Protein accession\tKEGG KO No.\tKEGG Gene\tKEGG pathway\n&quot;;
+while(&lt;FILE&gt;){
+    chomp;
+    print;
+    my @array=split/\t/;
+    if($array[1] and $hash{$array[1]}){
+        print &quot;\t$gene_desc{$array[1]}\t&quot;;
+        foreach my $k(keys %{$hash{$array[1]}}){
+            print &quot;$k; &quot;;
+        }
+    }
+    print &quot;\n&quot;;
+}
+</code></pre><p>参考文献：</p>
+<p>Moriya, Yuki, et al. “KAAS: an automatic genome annotation and pathway reconstruction server.” Nucleic Acids Research 35.Web Server issue(2007):182-5.</p>
+<p>5/8/2017 3:06:34 PM </p>
 
       
     </div>
@@ -448,7 +466,7 @@ public class RegexDemo {
           
             <a href="/tags/学习笔记/" rel="tag"># 学习笔记</a>
           
-            <a href="/tags/Java/" rel="tag"># Java</a>
+            <a href="/tags/Proteomics-learning/" rel="tag"># Proteomics learning</a>
           
         </div>
       
@@ -461,8 +479,8 @@ public class RegexDemo {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/25/Java学习笔记-01-构造函数/" rel="next" title="Java构造函数学习总结">
-                <i class="fa fa-chevron-left"></i> Java构造函数学习总结
+              <a href="/2017/04/28/awk用法教程/" rel="next" title="awk用法教程">
+                <i class="fa fa-chevron-left"></i> awk用法教程
               </a>
             
           </div>
@@ -470,10 +488,6 @@ public class RegexDemo {
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/04/28/awk用法教程/" rel="prev" title="awk用法教程">
-                awk用法教程 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -598,7 +612,7 @@ public class RegexDemo {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、java-util-regex-API-支持的正则表达式语法"><span class="nav-number">1.</span> <span class="nav-text">一、java.util.regex API 支持的正则表达式语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#二、-使用方法"><span class="nav-number">1.1.</span> <span class="nav-text">二、 使用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-支持的基本通配符"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.支持的基本通配符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-取值范围"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.取值范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-方括号表达式"><span class="nav-number">1.1.3.</span> <span class="nav-text">3.方括号表达式</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、KEGG简介"><span class="nav-number">1.</span> <span class="nav-text">一、KEGG简介</span></a></li></ol></div>
             
 
           </div>
